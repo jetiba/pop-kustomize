@@ -91,7 +91,9 @@ You must give Cloud Build explicit permission to trigger a Google Cloud Deploy r
 2. Navigate to [IAM](https://console.cloud.google.com/iam-admin/iam) and locate your Cloud Build service account
 3. Add these two roles
   * Cloud Deploy Releaser
+    `gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")@cloudbuild.gserviceaccount.com --role="roles/clouddeploy.releaser"`
   * Service Account User
+    `gcloud projects add-iam-policy-binding $PROJECT_ID --member=serviceAccount:$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")@cloudbuild.gserviceaccount.com --role="roles/iam.serviceAccountUser"`
 
 
 ## Demo Overview

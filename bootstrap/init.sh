@@ -24,7 +24,7 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 gcloud artifacts repositories create pop-stats --location=us-central1 \
 --repository-format=docker
 # customize the clouddeploy.yaml 
-sed -i.bu 's/project-id-here/${PROJECT_ID}/g' clouddeploy.yaml
+sed -i.bu "s/project-id-here/$PROJECT_ID/g" clouddeploy.yaml
 rm -f clouddeploy.yaml.bu
 # creates the Google Cloud Deploy pipeline
 gcloud deploy apply --file clouddeploy.yaml \
