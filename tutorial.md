@@ -44,7 +44,10 @@ Verify that the Google Cloud Deploy pipeline was created in the
 ## (Optional) Turn on automated container vulnerability analysis
 Google Cloud Container Analysis can be set to automatically scan for vulnerabilities on push (see [pricing](https://cloud.google.com/container-analysis/pricing)). 
 
-Enable Container Analysis API for automated scanning:
+Enable Container Analysis API for automated scanning: 
+```
+gcloud services enable containerscanning.googleapis.com
+```
 
 <walkthrough-enable-apis apis="containerscanning.googleapis.com"></walkthrough-enable-apis>
 

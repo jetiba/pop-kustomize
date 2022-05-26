@@ -24,8 +24,12 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 gcloud artifacts repositories create pop-stats --location=us-central1 \
 --repository-format=docker
 # customize the clouddeploy.yaml 
-sed -e "s/project-id-here/${PROJECT_ID}/" clouddeploy.yaml > clouddeploy.yaml
+sed -i.bu 's/project-id-here/${PROJECT_ID}/g' clouddeploy.yaml
+rm -f clouddeploy.yaml.bu
 # creates the Google Cloud Deploy pipeline
 gcloud deploy apply --file clouddeploy.yaml \
 --region=us-central1 --project=$PROJECT_ID
 echo "init done. To create clusters, run: ./gke-cluster-init.sh"
+# enables Automatic Vulnerability Scanning on the Artifact Registry
+gcloud services enable containerscanning.googleapis.com
+
