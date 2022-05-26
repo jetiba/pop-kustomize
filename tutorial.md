@@ -6,7 +6,7 @@
 
 <walkthrough-disable-features toc></walkthrough-disable-features>
 
-# Google Cloud End to End CI/CD tutorial
+# Google Cloud End to End CI/CD tutorial (reviewed)
 This tutorial will help you get up and running with Google Cloud CI/CD, including Cloud Build, Google Cloud Deploy, and Artifact Registry
 
 ## Select a project
