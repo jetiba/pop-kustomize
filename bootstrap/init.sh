@@ -20,6 +20,11 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member=serviceAccount:$(gcloud projects describe $PROJECT_ID \
     --format="value(projectNumber)")-compute@developer.gserviceaccount.com \
     --role="roles/container.developer"
+# add permisson to pull images from Artifact Registry
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member=serviceAccount:$(gcloud projects describe $PROJECT_ID \
+    --format="value(projectNumber)")-compute@developer.gserviceaccount.com \
+    --role="roles/artifactregistry.reader"
 # creates the Artifact Registry repo
 gcloud artifacts repositories create pop-stats --location=us-central1 \
 --repository-format=docker
